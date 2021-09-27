@@ -83,7 +83,7 @@ public class UserTest {
                 .thenReturn();
 
         int statusCode = response.getStatusCode();
-        Assert.assertEquals(statusCode, 201, "unable to fetch the user data");
+        Assert.assertEquals(statusCode, 200, "unable to fetch the user data");
         UserResponse userResponse = response.as(UserResponse.class);
 
         Assert.assertNotNull(userResponse, "User data must not be null");
