@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Properties>
+        <!--<Property name="basePath">C:\\logs</Property>-->
+        <Property name="basePath">logs</Property>
+        <Property name="logFileName">automation</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="fileLogger" fileName="${basePath}/${logFileName}.log" filePattern="${basePath}/${logFileName}-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <!-- please refer this site for pattern layout format https://logging.apache.org/log4j/2.x/manual/layouts.html-->
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %logger{36}:%line - %msg%n</pattern>
+            </PatternLayout>
+
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <DefaultRolloverStrategy max="5" />
+        </RollingFile>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <!-- please refer this site for pattern layout format https://logging.apache.org/log4j/2.x/manual/layouts.html-->
+            <PatternLayout  pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %logger{36}:%line - %msg%n" />
+        </Console>
+    </Appenders>
+
+    <!-- ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF -->
+    <Loggers>
+        <Logger name="com.woc" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>
+        <Root level="debug" additivity="false">
+            <appender-ref ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>

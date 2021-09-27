@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AutomationFrameworkB10" verbose="1" parallel="true">
+    <listeners>
+        <listener class-name="com.woc.listener.ExtentReportListener"></listener>
+        <listener class-name="com.woc.listener.CountListener"></listener>
+    </listeners>
+    <test name="REST API Testing" >
+        <classes>
+            <class name="com.woc.api.UserTest" />
+            <class name="com.woc.api.MultipleUserDataTest"></class>
+        </classes>
+    </test>
+
+</suite>
