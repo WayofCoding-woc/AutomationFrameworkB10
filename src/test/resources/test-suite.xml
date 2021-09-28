@@ -12,4 +12,18 @@
         </classes>
     </test>
 
+    <test name="Asset Management Web Project test" >
+        <classes>
+            <class name="com.woc.selenium.am.test.LoginPageTest" />
+            <class name="com.woc.selenium.am.test.UserRegistrationPageTest" />
+        </classes>
+    </test>
+
+    <test name="Google Search Test">
+        <classes>
+            <class name="com.woc.selenium.gs.test.GoogleSearchTestWithSingleInput"></class>
+            <class name="com.woc.selenium.gs.test.GoogleSearchDataDrivenTesting"></class>
+        </classes>
+    </test>
+
 </suite>
