@@ -1,5 +1,6 @@
-package com.woc.util;
+package com.woc.util.test;
 
+import com.woc.util.PropertyUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
