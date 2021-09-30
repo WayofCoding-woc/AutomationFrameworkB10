@@ -23,6 +23,7 @@ public class UserRegistrationPageTest extends BasePage {
     public static final By ROLE_SELECTOR = By.id("role");
     public static final By ACTIVE_CHECKBOX_SELECTOR = By.id("active");
     public static final By SUBMIT_BTN_SELECTOR = By.cssSelector("body > div:nth-child(2) > form > table > tbody > tr:nth-child(10) > td > input[type=submit]");
+    //public static final By DOJ_SELECTOR = By.id("doj");
 
     @Test
     public void navigateToUserRegistrationPageTest(){
@@ -50,6 +51,7 @@ public class UserRegistrationPageTest extends BasePage {
         driver.findElement(USER_NAME_SELECTOR).sendKeys(userId);
         driver.findElement(EMAIL_SELECTOR).sendKeys(userId+"@gmail.com");
         driver.findElement(MOBILE_SELECTOR).sendKeys(String.valueOf(AppUtil.getRandomMobileNumber()));
+       // driver.findElement(DOJ_SELECTOR).sendKeys("21/09/2021");
         ((JavascriptExecutor)driver).executeScript("document.getElementById('doj').valueAsDate=new Date();");
 
         new Select(driver.findElement(ROLE_SELECTOR)).selectByValue("user");

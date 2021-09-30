@@ -6,5 +6,5 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurefiles", glue = "com.woc.bdd.cucumber.test")
-public class Runner {
+public class BDDRunner {
 }
