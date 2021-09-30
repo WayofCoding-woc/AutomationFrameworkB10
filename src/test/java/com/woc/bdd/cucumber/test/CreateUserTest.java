@@ -1,4 +1,4 @@
-package com.woc.bdd.cucumber.am.test;
+package com.woc.bdd.cucumber.test;
 
 import com.woc.reqres.usercrud.User;
 import com.woc.util.PropertyUtil;
