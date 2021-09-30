@@ -28,7 +28,7 @@ public class GoogleSearchTestWithSingleInput extends BrowserManager {
         WebElement searchTexBox = driver.findElement(GOOGLE_SEARCH_TEXT_BOX_SELECTOR);
         searchTexBox.sendKeys("Hello World Java Program Example");
         searchTexBox.sendKeys(Keys.ENTER);
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
     }
 
     @AfterClass

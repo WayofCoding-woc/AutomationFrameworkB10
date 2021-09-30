@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.GeckoDriverService;
 
 import java.io.File;
+import java.time.Duration;
 
 public class BrowserManager {
 
@@ -27,7 +28,7 @@ public class BrowserManager {
         WebDriver webDriver = getWebDriver();
 
         webDriver.manage().window().maximize();
-        //webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         return webDriver;
     }
 

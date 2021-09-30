@@ -31,7 +31,7 @@ public class GoogleSearchDataDrivenTesting extends BrowserManager {
         WebElement searchTexBox = driver.findElement(GOOGLE_SEARCH_TEXT_BOX_SELECTOR);
         searchTexBox.sendKeys(searchText);
         searchTexBox.sendKeys(Keys.ENTER);
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
     }
 
     @DataProvider(name = "searchData")

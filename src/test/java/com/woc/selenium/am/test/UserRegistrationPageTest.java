@@ -1,5 +1,6 @@
 package com.woc.selenium.am.test;
 
+import com.woc.util.AppUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,6 @@ public class UserRegistrationPageTest extends BasePage {
     public static final By USER_NAME_SELECTOR = By.id("user_name");
     public static final By EMAIL_SELECTOR = By.id("email");
     public static final By MOBILE_SELECTOR = By.id("mobile");
-    public static final By DOJ_SELECTOR = By.id("doj");
     public static final By ROLE_SELECTOR = By.id("role");
     public static final By ACTIVE_CHECKBOX_SELECTOR = By.id("active");
     public static final By SUBMIT_BTN_SELECTOR = By.cssSelector("body > div:nth-child(2) > form > table > tbody > tr:nth-child(10) > td > input[type=submit]");
@@ -42,14 +42,16 @@ public class UserRegistrationPageTest extends BasePage {
         userRegistrationMenu.click();
 
         WebElement loginId = driver.findElement(LOGIN_ID_SELECTOR);
-        loginId.sendKeys("chetan3");
+        String userId = "test"+ AppUtil.getRandomNumber();
+        loginId.sendKeys(userId);
 
         driver.findElement(PASSWORD_SELECTOR).sendKeys("pwd");
         driver.findElement(CONFIRM_PASSWORD_SELECTOR).sendKeys("pwd");
-        driver.findElement(USER_NAME_SELECTOR).sendKeys("chetan3");
-        driver.findElement(EMAIL_SELECTOR).sendKeys("chetan3@gmail.com");
-        driver.findElement(MOBILE_SELECTOR).sendKeys("9562345873");
-        driver.findElement(DOJ_SELECTOR).sendKeys("21/09/2021");
+        driver.findElement(USER_NAME_SELECTOR).sendKeys(userId);
+        driver.findElement(EMAIL_SELECTOR).sendKeys(userId+"@gmail.com");
+        driver.findElement(MOBILE_SELECTOR).sendKeys(String.valueOf(AppUtil.getRandomMobileNumber()));
+        ((JavascriptExecutor)driver).executeScript("document.getElementById('doj').valueAsDate=new Date();");
+
         new Select(driver.findElement(ROLE_SELECTOR)).selectByValue("user");
         driver.findElement(ACTIVE_CHECKBOX_SELECTOR).click();
         sleep(1);

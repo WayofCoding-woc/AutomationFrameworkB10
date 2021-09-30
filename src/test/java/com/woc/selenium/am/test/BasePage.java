@@ -1,6 +1,7 @@
 package com.woc.selenium.am.test;
 
 import com.woc.config.selenium.BrowserManager;
+import com.woc.util.PropertyUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,7 @@ public class BasePage extends BrowserManager {
     private static final By PASSWORD_TEXT_BOX_SELECTOR = By.id("password");
     private static final By LOGIN_BUTTON_SELECTOR = By.xpath("/html/body/div[2]/form/table/tbody/tr[3]/td/input");
 
-    protected String baseUrl = "http://localhost:7060";
+    protected String baseUrl = PropertyUtil.getProperty("asset.management.web.base.url");
 
     protected WebDriver login(String loginId, String password){
         WebDriver driver = getDriver();
