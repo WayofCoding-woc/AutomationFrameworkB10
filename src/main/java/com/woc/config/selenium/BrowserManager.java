@@ -1,5 +1,6 @@
 package com.woc.config.selenium;
 
+import com.woc.util.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -16,7 +17,7 @@ public class BrowserManager {
     protected WebDriver getDriver(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.setHeadless(true);
+        options.setHeadless(Boolean.parseBoolean(PropertyUtil.getProperty("headless.mode")));
 
         WebDriver webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
