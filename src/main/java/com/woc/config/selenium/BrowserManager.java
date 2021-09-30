@@ -3,6 +3,7 @@ package com.woc.config.selenium;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 
@@ -13,7 +14,11 @@ public class BrowserManager {
     }
 
     protected WebDriver getDriver(){
-        WebDriver webDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.setHeadless(true);
+
+        WebDriver webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
         //webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         return webDriver;
