@@ -118,7 +118,6 @@ public class UserTest {
         Assert.assertNotNull(createdUser);
         Assert.assertNotNull(createdUser.getId());
         Assert.assertNotNull(createdUser.getCreatedAt());
-
     }
 
     @Test
@@ -131,17 +130,6 @@ public class UserTest {
 
         User updatedUser = RestAssured
                 .given()
-               /*
-               //if any api need http basic auth then we can pass the username and password like below
-               .auth()
-                .basic("username", "password")*/
-
-                /*
-                //if any api need oauth then we can pass the token here as a header
-                // for e.g token is asfdljasldfjalskdfjlasjdfljasdlfjasljdf
-                .header("Authorization", "Bearer asfdljasldfjalskdfjlasjdfljasdlfjasljdf")
-                */
-
                 .when()
                 .contentType(ContentType.JSON)
                 .body(inputUser)
@@ -155,7 +143,6 @@ public class UserTest {
 
         Assert.assertNotNull(updatedUser);
         Assert.assertNotNull(updatedUser.getUpdatedAt());
-
     }
 
     @Test
@@ -186,7 +173,6 @@ public class UserTest {
 
         Assert.assertNotNull(updatedUser);
         Assert.assertNotNull(updatedUser.getUpdatedAt());
-
     }
 
     @Test
@@ -216,7 +202,6 @@ public class UserTest {
 
         Assert.assertNotNull(updatedUser);
         Assert.assertNotNull(updatedUser.getUpdatedAt());
-
     }
 
     @Test
@@ -227,7 +212,6 @@ public class UserTest {
                 .delete("api/users/"+2)
                 .then()
                 .statusCode(204);
-
     }
 
 }
