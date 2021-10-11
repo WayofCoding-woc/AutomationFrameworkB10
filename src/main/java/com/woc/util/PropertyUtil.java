@@ -24,8 +24,10 @@ public class PropertyUtil {
             properties.load(fileReader);
         } catch (FileNotFoundException e) {
             logger.error("Could not find the file, please check the file location", e);
+            throw new RuntimeException(e);
         } catch (IOException e) {
             logger.error("Unable to read the content of config.properties file", e);
+            throw new RuntimeException(e);
         }finally {
             if(null == fileReader){
                 try {

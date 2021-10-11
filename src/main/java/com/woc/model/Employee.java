@@ -1,4 +1,4 @@
-package com.woc;
+package com.woc.model;
 
 import java.util.Date;
 

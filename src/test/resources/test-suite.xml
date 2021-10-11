@@ -9,6 +9,7 @@
         <classes>
             <class name="com.woc.api.UserTest" />
             <class name="com.woc.api.MultipleUserDataTest"></class>
+            <class name="com.woc.json.test.EmployeeDataJSONTest"></class>
         </classes>
     </test>
 

@@ -10,6 +10,8 @@ import java.io.File;
 public class ExtentReportManager {
     public static ExtentReports extentReports = getInstance();//thread safe singleton object
 
+    private ExtentReportManager(){}
+
     private static ExtentReports getInstance(){
         extentReports = new ExtentReports();
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
